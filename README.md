@@ -58,36 +58,22 @@ Note that libarchive will not be linked by homebrew because macOS includes its o
 
     $ brew install libssh libarchive
     
-### Build Tensorflow
+### (Optional) Build Tensorflow
 
-1. Configure Tensorflow.
+The PreBuild scripts will check if TensorFlow needs to be built, but to manually build it yourself:
 
-    This is only necessary once.
-
-         $ cd 3rdParty/tensorflow; ./configure
-    
-    The configure process will present options for the build.
-     
-    I chose the default python install and path, default for everything else, and gave `-mavx -msse4.2` for optimization options. 
-     
-    Your CPU may differ, and you may want CUDA support if you have an NVIDIA GPU. The prediction done locally isn't very taxing and doesn't require a GPU.
-     
-     When you are running the app, Tensorflow will log in the console output any optimizations for your CPU not being used. Keep in mind that CPUs without that optimization option will not be able to run your Tensorflow code should you be distributing your app.
-
-1. Build TensorFlow (last built version is 1.14)
-
-    The PreBuild scripts will check if TensorFlow needs to be built, but to manually build it yourself:
-
-        $ Tools/Helpers/BuildTensorFlowMac.sh
+    $ Tools/Helpers/BuildTensorFlowMac.sh
 
 
-### Build cnpy
+### (Optional) Build cnpy
 
 The PreBuild scripts will check if Cnpy needs to be build, but to manually build it yourself:
 
     $ Tools/Helpers/BuildCnpy.sh
 
 ### Build Vibrary
+
+The `Tools/BuildMac.sh` takes care of this, but manual steps are outlined here.
 
 Currently there is only an Xcode exporter configured.
 
@@ -97,4 +83,4 @@ Currently there is only an Xcode exporter configured.
 
 Or to build and create an archive of the app, giving it a specific version
 
-1. `Tools/BuildMac.sh <version>` replacing version with the version number of the release. If no version is given the current version is bumped up one.
+ `$ Tools/BuildMac.sh <version>` replacing version with the version number of the release. If no version is given the current version is bumped up one.
