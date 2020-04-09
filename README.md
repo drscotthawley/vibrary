@@ -6,9 +6,7 @@ TODO: Expand startup for other platforms beyond MacOS
 
 Clone the project and initialize the submodules in 3rdParty.
 
-!!! Fix path 
-
-    $ git clone --recurse-submodules git@gitlab.artlogic.com:ArtLogic/Incubator1.git`
+    $ git clone --recurse-submodules https://github.com/artandlogic/vibrary.git
         
 Or if you already have cloned the project
         
