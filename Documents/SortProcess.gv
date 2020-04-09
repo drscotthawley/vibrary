@@ -1,0 +1,53 @@
+digraph Sort 
+{
+	monitorSort [label="monitor sort"];
+   predictOutputFile [shape=parallelogram];
+   sortFileList [shape=parallelogram];
+   weightsFile [shape=parallelogram];
+
+   subgraph clusterKeras
+	{
+	   label="Keras";
+	   load_model
+	   predict;
+	}
+	
+	subgraph clusterPredictClass
+	{
+	   label="panotti";
+	   predict_one;
+	   load_model_ext->load_model;
+	}
+	
+	subgraph clusterLibRosa
+	{
+	   label="libRosa";
+	   load_audio;
+	   melspectrogram;
+	   amplitude_to_db;
+	}
+	
+	subgraph clusterNumPy
+	{
+	   label="NumPy";
+	   argmax;
+	}
+ 
+	monitorSort -> predict_one;
+	
+	edge [label="hdf5"];
+	weightsFile -> predict_one;
+	edge [label=""];
+	
+	predict_one -> load_model_ext;
+	
+	sortFileList -> escapeSpaces -> load_audio -> predict_one -> argmax;
+	predict_one -> make_melgram -> predict;
+	make_melgram -> melspectrogram;
+	make_melgram -> amplitude_to_db;
+	
+	edge [label="json"];
+	argmax -> predictOutputFile;
+	predictOutputFile -> makeLinks;
+	edge [label=""];
+}

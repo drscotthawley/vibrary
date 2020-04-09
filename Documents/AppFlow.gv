@@ -1,0 +1,142 @@
+digraph Vibrary
+{
+   compound=true;
+
+   subgraph Legend
+   {
+      rank="max";
+      
+      legend [shape="note";label="*Solid ellipses are actions taken by the user.\n*Dashed ellipses are actions performed by software, transparent to the user.\n*Green indicates files and other stored data."];
+   }
+   
+   subgraph Artifacts
+   {
+      color="green";
+
+      subgraph Files
+      {
+         rank="sink";
+         database [shape="cylinder";color="green"];
+         sortFile [label="sort file";shape="note";color="green"];
+      }
+
+      subgraph clusterDataSet
+      {
+         label="Data Set";
+         shape="folder";
+         color="green";
+
+         edge [dir="none";style="dotted"]
+	 node [shape="note";color="green"];
+      
+         subgraph clusterTag1
+         {
+            label="tag 1";
+            shape="folder";
+	    
+            file11 [label = "file 1"];
+            file1N [label = "file N"];
+         }
+      
+         subgraph clusterTagN
+         {
+            label="tag N";
+            shape="tab";
+
+            file21 [label = "file 1"];
+            file2N [label = "file N"];
+         }
+	 
+         file11 -> file1N;
+         file21 -> file2N;
+
+         file1N->file21 [ltail=clusterTag1;lhead=clusterTagN;style="dotted"];
+      }
+   }
+
+   subgraph clusterSearch
+   {
+	label="Search Screen";
+
+        subgraph userActions
+	{
+	   rank="min";
+
+	   createNewSortFile;
+	   updateSortFile;
+	   plusButton [label="click plus button"];
+           dropFiles;
+	   enterTags;
+
+	}
+
+        lookupInDb [style="dotted"];
+	tagFiles [label="tag files with NN";style="dotted"];
+	addFilesAndTagsToDb [style="dotted"];
+	displayResults [style="dotted"];
+	pickFiles;
+	
+	enterTags -> lookupInDb -> displayResults;
+	dropFiles -> tagFiles -> addFilesAndTagsToDb;
+	plusButton -> pickFiles -> tagFiles;
+
+	sortFile -> tagFiles [style="dotted"];
+   }
+
+
+   database -> lookupInDb [style="dotted"];
+   addFilesAndTagsToDb -> database [style="dotted"];
+
+
+   subgraph clusterTrain
+   {
+      label="Train On Server";
+      node [style="dotted"];
+
+      node [style="dotted"];
+      receiveSpectrograms;
+      learnWeightsForNeuralNet;
+      saveWeightsInSortFile;
+      signalDone;
+   }
+
+   subgraph clusterDataSetEditing
+   {
+      label="Edit Training Data";
+
+      loadExistingTags [style="dotted"];
+      createSpectrograms [style="dotted"];
+      uploadSpectrograms [style="dotted"];
+      waitForDoneSignal [style="dotted"];
+      downloadSortFile [style="dotted"];
+
+      createNewTag -> addExampleFilesForTag -> finishDataSet;
+      loadExistingTags -> selectExistingTag -> addExampleFilesForTag;
+      loadExistingTags -> createNewTag;
+      addExampleFilesForTag -> addExampleFilesForTag;
+      addExampleFilesForTag -> createNewTag;
+      addExampleFilesForTag -> selectExistingTag;
+      finishDataSet -> createSpectrograms -> uploadSpectrograms;
+      uploadSpectrograms -> waitForDoneSignal -> downloadSortFile;      
+      waitForDoneSignal -> waitForDoneSignal;
+
+      // Data edges
+      createNewSortFile -> createNewTag [lhead="clusterDataSetEditing"];
+      updateSortFile -> loadExistingTags [lhead="clusterDataSetEditing"];
+      // !!! The edge below throws off the flow of the diagram, but it should be there. Oddly connecting to uploadSpectrograms works fine.
+      //file11 -> createSpectrograms [ltail="clusterDataSet";style="dotted"];
+      
+      uploadSpectrograms -> receiveSpectrograms [lhead="clusterTrain";style="dotted"];
+      
+      edge [style="dotted"];
+      createNewTag -> file11 [lhead=clusterDataSet];
+      addExampleFilesForTag -> file11 [lhead=clusterDataSet];
+      database -> loadExistingTags;
+      downloadSortFile -> sortFile;
+      createSpectrograms -> database;
+      edge [style="solid"];
+   }
+
+   // Training connections;
+   receiveSpectrograms -> learnWeightsForNeuralNet -> saveWeightsInSortFile -> signalDone;
+}

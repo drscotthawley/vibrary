@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="uiEZ1i" name="Vibrary" projectType="guiapp" jucerVersion="5.4.7"
+              companyName="Art+Logic, Inc." companyCopyright="&#169; Art+Logic, Inc. 2018-2020"
+              companyWebsite="https://www.artandlogic.com/" bundleIdentifier="com.artandlogic.vibrary"
+              maxBinaryFileSize="10485760" cppLanguageStandard="17" version="0.1.0"
+              projectLineFeed="&#10;">
+  <MAINGROUP id="aknjgw" name="Vibrary">
+    <GROUP id="{38BB0C96-FA79-5495-9251-4C0AEAB83BF9}" name="Source">
+      <GROUP id="{B0B13227-28AB-F197-FE5B-5D346F674902}" name="Resources">
+        <FILE id="JjU7dq" name="Sample10Tags.zip" compile="0" resource="0"
+              file="Resources/Sample10Tags.zip" xcodeResource="1"/>
+        <FILE id="bAsYR9" name="Sample.zip" compile="0" resource="0" file="Resources/Sample.zip"
+              xcodeResource="1"/>
+        <FILE id="bGDFOG" name="vibrary-round-dark.png" compile="0" resource="1"
+              file="Resources/images/vibrary-round-dark.png"/>
+        <FILE id="d2bTvz" name="background.png" compile="0" resource="1" file="Resources/images/background.png"/>
+        <FILE id="edlT3D" name="icon-check-color.png" compile="0" resource="1"
+              file="Resources/images/icon-check-color.png"/>
+        <FILE id="NoBgJJ" name="icon-check-white2x.png" compile="0" resource="1"
+              file="Resources/images/icon-check-white2x.png"/>
+        <FILE id="oQDso3" name="icon-delete-tag.png" compile="0" resource="1"
+              file="Resources/images/icon-delete-tag.png"/>
+        <FILE id="GLrJe9" name="icon-play.png" compile="0" resource="1" file="Resources/images/icon-play.png"/>
+        <FILE id="s2wK6a" name="icon-plus-circle.png" compile="0" resource="1"
+              file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Resources/images/icon-plus-circle.png"/>
+        <FILE id="DKsqqP" name="icon-plus.png" compile="0" resource="1" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Resources/images/icon-plus.png"/>
+        <FILE id="iTIgWq" name="image-settings.png" compile="0" resource="1"
+              file="Resources/images/image-settings.png"/>
+        <FILE id="wuPf8k" name="image-train.png" compile="0" resource="1" file="Resources/images/image-train.png"/>
+        <FILE id="JlJ5Oy" name="logo-vibrary.png" compile="0" resource="1"
+              file="Resources/images/logo-vibrary.png"/>
+        <FILE id="PXE7c6" name="Montserrat-Bold.ttf" compile="0" resource="1"
+              file="Resources/fonts/Montserrat-Bold.ttf"/>
+        <FILE id="alGQ25" name="Montserrat-Medium.otf" compile="0" resource="1"
+              file="Resources/fonts/Montserrat-Medium.otf"/>
+      </GROUP>
+      <GROUP id="{FB4445D4-6205-4657-6827-4A44D1493D38}" name="ThirdParty">
+        <FILE id="BHPhFF" name="sqlite3.c" compile="1" resource="0" file="3rdParty/sqlite/src/sqlite3.c"/>
+        <FILE id="kXROG1" name="sqlite3.h" compile="0" resource="0" file="3rdParty/sqlite/src/sqlite3.h"/>
+      </GROUP>
+      <FILE id="MRzBCA" name="CommandMessages.h" compile="0" resource="0"
+            file="Source/CommandMessages.h"/>
+      <FILE id="e92CwN" name="Float16.cpp" compile="1" resource="0" file="Source/Float16.cpp"/>
+      <FILE id="k4eUJd" name="Float16.h" compile="0" resource="0" file="Source/Float16.h"/>
+      <FILE id="pb02P2" name="Float16Tests.cpp" compile="1" resource="0"
+            file="Source/Float16Tests.cpp"/>
+      <GROUP id="{1FA4462C-0C52-F350-E695-0FEB74566F49}" name="GUI">
+        <FILE id="yYrB89" name="AddTagInfoView.cpp" compile="1" resource="0"
+              file="Source/AddTagInfoView.cpp"/>
+        <FILE id="wzfwyN" name="AddTagInfoView.h" compile="0" resource="0"
+              file="Source/AddTagInfoView.h"/>
+        <FILE id="CwMGgT" name="AddTagsOverlay.cpp" compile="1" resource="0"
+              file="Source/AddTagsOverlay.cpp"/>
+        <FILE id="JieojW" name="AddTagsOverlay.h" compile="0" resource="0"
+              file="Source/AddTagsOverlay.h"/>
+        <FILE id="ozzPqT" name="AddTagsView.cpp" compile="1" resource="0" file="Source/AddTagsView.cpp"/>
+        <FILE id="DlYgp7" name="AddTagsView.h" compile="0" resource="0" file="Source/AddTagsView.h"/>
+        <FILE id="AmEtv2" name="AppLookAndFeel.cpp" compile="1" resource="0"
+              file="Source/AppLookAndFeel.cpp"/>
+        <FILE id="fOweDN" name="AppLookAndFeel.h" compile="0" resource="0"
+              file="Source/AppLookAndFeel.h"/>
+        <FILE id="Jg9H3Z" name="ButtonLookAndFeel.cpp" compile="1" resource="0"
+              file="Source/ButtonLookAndFeel.cpp"/>
+        <FILE id="Yh9U94" name="ButtonLookAndFeel.h" compile="0" resource="0"
+              file="Source/ButtonLookAndFeel.h"/>
+        <FILE id="XheLrl" name="Colorizers.cpp" compile="1" resource="0" file="Source/Colorizers.cpp"/>
+        <FILE id="tOvpCv" name="Colorizers.h" compile="0" resource="0" file="Source/Colorizers.h"/>
+        <FILE id="lcaRu2" name="ContentView.h" compile="0" resource="0" file="Source/ContentView.h"/>
+        <FILE id="MGFOzt" name="DetailFileTable.cpp" compile="1" resource="0"
+              file="Source/DetailFileTable.cpp"/>
+        <FILE id="k9btJn" name="DetailFileTable.h" compile="0" resource="0"
+              file="Source/DetailFileTable.h"/>
+        <FILE id="VOtgtq" name="EmptyAddTagFileView.cpp" compile="1" resource="0"
+              file="Source/EmptyAddTagFileView.cpp"/>
+        <FILE id="kWyhLq" name="EmptyAddTagFileView.h" compile="0" resource="0"
+              file="Source/EmptyAddTagFileView.h"/>
+        <FILE id="ZuGiYC" name="EmptyFileListView.cpp" compile="1" resource="0"
+              file="Source/EmptyFileListView.cpp"/>
+        <FILE id="M43pjY" name="EmptyFileListView.h" compile="0" resource="0"
+              file="Source/EmptyFileListView.h"/>
+        <FILE id="KfuOug" name="FileListView.cpp" compile="1" resource="0"
+              file="Source/FileListView.cpp"/>
+        <FILE id="TD2mSS" name="FileListView.h" compile="0" resource="1" file="Source/FileListView.h"/>
+        <FILE id="Hmavj6" name="FileToolBar.cpp" compile="1" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/FileToolBar.cpp"/>
+        <FILE id="VnJ8ek" name="FileToolBar.h" compile="0" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/FileToolBar.h"/>
+        <FILE id="Nu5pF0" name="HeaderLookAndFeel.cpp" compile="1" resource="0"
+              file="Source/HeaderLookAndFeel.cpp"/>
+        <FILE id="IhIyiS" name="HeaderLookAndFeel.h" compile="0" resource="0"
+              file="Source/HeaderLookAndFeel.h"/>
+        <FILE id="vxURWj" name="MainView.cpp" compile="1" resource="0" file="Source/MainView.cpp"/>
+        <FILE id="TfvLkP" name="MainView.h" compile="0" resource="0" file="Source/MainView.h"/>
+        <FILE id="ws4AkD" name="NameSortFile.cpp" compile="1" resource="0"
+              file="Source/NameSortFile.cpp"/>
+        <FILE id="X4YkOU" name="NameSortFile.h" compile="0" resource="0" file="Source/NameSortFile.h"/>
+        <FILE id="sWMXjO" name="OverlayView.cpp" compile="1" resource="0" file="Source/OverlayView.cpp"/>
+        <FILE id="MfV8yY" name="OverlayView.h" compile="0" resource="0" file="Source/OverlayView.h"/>
+        <FILE id="yRXnVW" name="ProgressOverlay.cpp" compile="1" resource="0"
+              file="Source/ProgressOverlay.cpp"/>
+        <FILE id="SGsFSv" name="ProgressOverlay.h" compile="0" resource="0"
+              file="Source/ProgressOverlay.h"/>
+        <FILE id="QHnbk7" name="RemoveCell.cpp" compile="1" resource="0" file="Source/RemoveCell.cpp"/>
+        <FILE id="o1PcYM" name="RemoveCell.h" compile="0" resource="0" file="Source/RemoveCell.h"/>
+        <FILE id="WBYQk7" name="SettingsView.cpp" compile="1" resource="0"
+              file="Source/SettingsView.cpp"/>
+        <FILE id="O4xcMK" name="SettingsView.h" compile="0" resource="0" file="Source/SettingsView.h"/>
+        <FILE id="p7Vu4t" name="SimpleFileTable.cpp" compile="1" resource="0"
+              file="Source/SimpleFileTable.cpp"/>
+        <FILE id="XI5WVL" name="SimpleFileTable.h" compile="0" resource="0"
+              file="Source/SimpleFileTable.h"/>
+        <FILE id="uLWyVX" name="SortFileComboBox.cpp" compile="1" resource="0"
+              file="Source/SortFileComboBox.cpp"/>
+        <FILE id="yrd8VF" name="SortFileComboBox.h" compile="0" resource="0"
+              file="Source/SortFileComboBox.h"/>
+        <FILE id="XVnqyQ" name="TagButton.cpp" compile="1" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/TagButton.cpp"/>
+        <FILE id="riey7v" name="TagButton.h" compile="0" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/TagButton.h"/>
+        <FILE id="cWALOe" name="TagTextEditor.cpp" compile="1" resource="0"
+              file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/TagTextEditor.cpp"/>
+        <FILE id="nymRWB" name="TagTextEditor.h" compile="0" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/TagTextEditor.h"/>
+        <FILE id="SmYCbp" name="TagView.cpp" compile="1" resource="0" file="Source/TagView.cpp"/>
+        <FILE id="nHeGA7" name="TagView.h" compile="0" resource="0" file="Source/TagView.h"/>
+        <FILE id="rd6vF0" name="TextEditLookAndFeel.cpp" compile="1" resource="0"
+              file="Source/TextEditLookAndFeel.cpp"/>
+        <FILE id="CTO6pK" name="TextEditLookAndFeel.h" compile="0" resource="0"
+              file="Source/TextEditLookAndFeel.h"/>
+        <FILE id="mxg47S" name="ToolsCellView.cpp" compile="1" resource="0"
+              file="Source/ToolsCellView.cpp"/>
+        <FILE id="BJkZ8r" name="ToolsCellView.h" compile="0" resource="0" file="Source/ToolsCellView.h"/>
+        <FILE id="RlwsM5" name="TrainingView.cpp" compile="1" resource="0"
+              file="Source/TrainingView.cpp"/>
+        <FILE id="vIOgbs" name="TrainingView.h" compile="0" resource="0" file="Source/TrainingView.h"/>
+      </GROUP>
+      <FILE id="FCttjE" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="IUJqeD" name="MelFilter.cpp" compile="1" resource="0" file="Source/MelFilter.cpp"/>
+      <FILE id="YzJnXk" name="MelFilter.h" compile="0" resource="0" file="Source/MelFilter.h"/>
+      <GROUP id="{A6310410-E140-91C9-001E-5CE8F9F54FAA}" name="Model">
+        <FILE id="Tn26Qa" name="SortFile.cpp" compile="1" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/SortFile.cpp"/>
+        <FILE id="GVXsEQ" name="SortFile.h" compile="0" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/SortFile.h"/>
+        <FILE id="L80SR0" name="Spectrogram.cpp" compile="1" resource="0" file="Source/Spectrogram.cpp"/>
+        <FILE id="hAktFn" name="Spectrogram.h" compile="0" resource="0" file="Source/Spectrogram.h"/>
+        <FILE id="I1A2M0" name="Tag.cpp" compile="1" resource="0" file="Source/Tag.cpp"/>
+        <FILE id="xU0p5x" name="Tag.h" compile="0" resource="0" file="Source/Tag.h"/>
+      </GROUP>
+      <FILE id="gMIGt2" name="PaxArchive.cpp" compile="1" resource="0" file="Source/PaxArchive.cpp"/>
+      <FILE id="kjiR8Z" name="PaxArchive.h" compile="0" resource="0" file="Source/PaxArchive.h"/>
+      <GROUP id="{84139382-C5F0-E6BE-7A7B-39C339DF8174}" name="Persistence">
+        <FILE id="wbqlz3" name="Database.cpp" compile="1" resource="0" file="Source/Database.cpp"/>
+        <FILE id="XmYbUU" name="Database.h" compile="0" resource="0" file="Source/Database.h"/>
+        <FILE id="M6byIK" name="DatabaseCallback.h" compile="0" resource="0"
+              file="Source/DatabaseCallback.h"/>
+        <FILE id="StTgNz" name="DatabaseCommands.cpp" compile="1" resource="0"
+              file="Source/DatabaseCommands.cpp"/>
+        <FILE id="CY2w7K" name="DatabaseCommands.h" compile="0" resource="0"
+              file="Source/DatabaseCommands.h"/>
+        <FILE id="pxPz6V" name="DatabaseException.h" compile="0" resource="0"
+              file="Source/DatabaseException.h"/>
+        <FILE id="DVyanP" name="FileSource.cpp" compile="1" resource="0" file="Source/FileSource.cpp"/>
+        <FILE id="z3RsGb" name="FileSource.h" compile="0" resource="0" file="Source/FileSource.h"/>
+        <FILE id="bTbGDC" name="Paths.cpp" compile="1" resource="0" file="Source/Paths.cpp"/>
+        <FILE id="JIA4BL" name="Paths.h" compile="0" resource="0" file="Source/Paths.h"/>
+        <FILE id="prxoGb" name="Persistence.cpp" compile="1" resource="0" file="Source/Persistence.cpp"/>
+        <FILE id="E6U4du" name="Persistence.h" compile="0" resource="0" file="Source/Persistence.h"/>
+        <FILE id="X5McxC" name="SortFilesSource.cpp" compile="1" resource="0"
+              file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/SortFilesSource.cpp"/>
+        <FILE id="zTtXbq" name="SortFilesSource.h" compile="0" resource="0"
+              file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/SortFilesSource.h"/>
+        <FILE id="GDHrx6" name="SpectrogramWriter.cpp" compile="1" resource="0"
+              file="Source/SpectrogramWriter.cpp"/>
+        <FILE id="ieEEYT" name="SpectrogramWriter.h" compile="0" resource="0"
+              file="Source/SpectrogramWriter.h"/>
+        <FILE id="s3q95h" name="TagsSource.cpp" compile="1" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/TagsSource.cpp"/>
+        <FILE id="RWSeOv" name="TagsSource.h" compile="0" resource="0" file="/System/Volumes/Data/Users/jason/src/AL/ArtLogic/Incubator1/Source/TagsSource.h"/>
+      </GROUP>
+      <FILE id="wTAxkQ" name="Player.cpp" compile="1" resource="0" file="Source/Player.cpp"/>
+      <FILE id="HPZwHd" name="Player.h" compile="0" resource="0" file="Source/Player.h"/>
+      <GROUP id="{D821F71B-6E9A-EFE9-2228-8D5EE4F98913}" name="Predict">
+        <FILE id="nuxwe2" name="Graph.h" compile="0" resource="0" file="Source/Graph.h"/>
+        <FILE id="prfBes" name="GraphReader.cpp" compile="1" resource="0" file="Source/GraphReader.cpp"/>
+        <FILE id="zvoLtQ" name="GraphReader.h" compile="0" resource="0" file="Source/GraphReader.h"/>
+        <FILE id="Y52imN" name="NetFeeder.h" compile="0" resource="0" file="Source/NetFeeder.h"/>
+        <FILE id="JjQBDM" name="NetFeeder.cpp" compile="1" resource="0" file="Source/NetFeeder.cpp"/>
+        <FILE id="R7GsYR" name="Tagger.cpp" compile="1" resource="0" file="Source/Tagger.cpp"/>
+        <FILE id="qFwvCd" name="Tagger.h" compile="0" resource="0" file="Source/Tagger.h"/>
+        <FILE id="lAJcYt" name="TaggingManager.cpp" compile="1" resource="0"
+              file="Source/TaggingManager.cpp"/>
+        <FILE id="NSd50E" name="TaggingManager.h" compile="0" resource="0"
+              file="Source/TaggingManager.h"/>
+      </GROUP>
+      <FILE id="U6Vtet" name="SecureSession.cpp" compile="1" resource="0"
+            file="Source/SecureSession.cpp"/>
+      <FILE id="BMhHcd" name="SecureSession.h" compile="0" resource="0" file="Source/SecureSession.h"/>
+      <FILE id="KH7Lco" name="Settings.cpp" compile="1" resource="0" file="Source/Settings.cpp"/>
+      <FILE id="iNaZ28" name="Settings.h" compile="0" resource="0" file="Source/Settings.h"/>
+      <FILE id="vY40S4" name="StringUtils.cpp" compile="1" resource="0" file="Source/StringUtils.cpp"/>
+      <FILE id="u3zHGg" name="StringUtils.h" compile="0" resource="0" file="Source/StringUtils.h"/>
+      <GROUP id="{A8FBA945-6F3C-131F-9448-C9A5A26CA4FC}" name="Training">
+        <FILE id="attCXO" name="DataSet.cpp" compile="1" resource="0" file="Source/DataSet.cpp"/>
+        <FILE id="XwpUZP" name="DataSet.h" compile="0" resource="0" file="Source/DataSet.h"/>
+        <FILE id="BDZXNG" name="DataSetBuilder.cpp" compile="1" resource="0"
+              file="Source/DataSetBuilder.cpp"/>
+        <FILE id="brx2nU" name="DataSetBuilder.h" compile="0" resource="0"
+              file="Source/DataSetBuilder.h"/>
+        <FILE id="YER7gZ" name="RemoteTrainer.cpp" compile="1" resource="0"
+              file="Source/RemoteTrainer.cpp"/>
+        <FILE id="QMybuY" name="RemoteTrainer.h" compile="0" resource="0" file="Source/RemoteTrainer.h"/>
+        <FILE id="afCQnL" name="TrainingManager.cpp" compile="1" resource="0"
+              file="Source/TrainingManager.cpp"/>
+        <FILE id="V5H4Ng" name="TrainingManager.h" compile="0" resource="0"
+              file="Source/TrainingManager.h"/>
+      </GROUP>
+      <FILE id="H0i53n" name="Utils.cpp" compile="1" resource="0" file="Source/Utils.cpp"/>
+      <FILE id="drvVQb" name="Utils.h" compile="0" resource="0" file="Source/Utils.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" externalLibraries="z" extraLinkerFlags="${PROJECT_DIR}/../../3rdParty/tensorflow/dist/lib/libtensorflow_framework.1.dylib&#10;${PROJECT_DIR}/../../3rdParty/tensorflow/dist/lib/libtensorflow_cc.so&#10;${PROJECT_DIR}/../../3rdParty/cnpy/dist/lib/libcnpy.a&#10;/usr/local/lib/libssh.4.8.4.dylib&#10;/usr/local/Cellar/libarchive/3.4.0/lib/libarchive.13.dylib&#10;-L/usr/local/opt/openssl/lib&#10;-rpath @loader_path/../Libraries"
+               postbuildCommand="${PROJECT_DIR}/../../Tools/PostBuildMac.sh"
+               extraCompilerFlags="-I../../3rdParty/tensorflow/dist/include/protobuf/src&#10;-I../../3rdParty/tensorflow/dist/include/tensorflow/eigen&#10;-I../../3rdParty/tensorflow/dist/include/tensorflow/bazel-genfiles&#10;-I../../3rdParty/tensorflow/dist/include/tensorflow&#10;-I../../3rdParty/tensorflow/dist/include&#10;-I../../3rdParty/cnpy/dist/include&#10;-I../../3rdParty/sqlite/src&#10;-I/usr/local/Cellar/libssh/0.9.3/include&#10;-I/usr/local/Cellar/libarchive/3.4.0/include"
+               bigIcon="bGDFOG" smallIcon="bGDFOG" prebuildCommand="${PROJECT_DIR}/../../Tools/PreBuildMac.sh">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Vibrary" defines="UNIT_TESTS=1"
+                       osxCompatibility="10.12 SDK"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Vibrary" osxCompatibility="10.12 SDK"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2017 targetFolder="Builds/VisualStudio2017">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Sorting"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Sorting"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2017>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Sorting"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Sorting"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <OSX buildEnabled="1"/>
+  </LIVE_SETTINGS>
+  <JUCEOPTIONS JUCE_PLUGINHOST_VST="0" JUCE_USE_MP3AUDIOFORMAT="1"/>
+</JUCERPROJECT>

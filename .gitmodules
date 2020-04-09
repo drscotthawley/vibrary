@@ -1,0 +1,13 @@
+[submodule "3rdParty/tensorflow"]
+	path = 3rdParty/tensorflow
+	url = https://github.com/tensorflow/tensorflow.git
+	branch = r1.12
+[submodule "3rdParty/protobuf"]
+	path = 3rdParty/protobuf
+	url = https://github.com/protocolbuffers/protobuf.git
+[submodule "3rdParty/cnpy"]
+	path = 3rdParty/cnpy
+	url = https://github.com/rogersce/cnpy.git
+[submodule "3rdParty/libssh"]
+	path = 3rdParty/libssh
+	url = https://git.libssh.org/projects/libssh.git

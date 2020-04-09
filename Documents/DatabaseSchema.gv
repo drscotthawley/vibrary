@@ -1,0 +1,70 @@
+digraph DatabaseSchema
+{
+   compound=true;
+   rankdir=LR;
+
+   subgraph cluster_filesystem
+   {
+      label = "filesystem";
+      shape = "cylinder";
+      weights[shape="ellipse"];
+      PNGs[shape="ellipse"];
+   }
+
+   node [shape="plain"];           
+
+   audiofile[label=<
+   <table border="0" cellborder="1" cellspacing="0">
+      <tr><td><i>AudioFiles</i></td></tr>
+      <tr><td port="f">rowid</td></tr>
+      <tr><td>name</td></tr>
+      <tr><td port="0">thumbnailId</td></tr>
+   </table>>];
+
+   sortfile[label=<
+   <table border="0" cellborder="1" cellspacing="0">
+      <tr><td><i>SortFiles</i></td></tr>
+      <tr><td port="c">rowid</td></tr>
+      <tr><td>name</td></tr>
+      <tr><td port="1">weightsFilename</td></tr>
+   </table>>];
+
+   tag[label=<
+   <table border="0" cellborder="1" cellspacing="0">
+      <tr><td><i>Tags</i></td></tr>
+      <tr><td port="a">rowid</td></tr>
+      <tr><td>name</td></tr>
+      <tr><td>classId</td></tr>
+      <tr><td port="2">sortFileId</td></tr>
+   </table>>];
+
+   audiotags[label=<
+    <table border="0" cellborder="1" cellspacing="0">
+       <tr><td><i>AudioTags</i></td></tr>
+       <tr><td>rowid</td></tr>
+       <tr><td port="3">audioFileId</td></tr>
+       <tr><td port="4">tagId</td></tr>
+    </table>>];
+
+   thumbnails[label=<
+   <table border="0" cellborder="1" cellspacing="0">
+      <tr><td><i>Thumbnails</i></td></tr>
+      <tr><td port="d">rowId</td></tr>
+      <tr><td port="b">large</td></tr>
+      <tr><td port="c">small</td></tr>
+   </table>>];
+
+
+
+   audiofile:0 -> thumbnails:d;
+
+   sortfile:1 -> weights;
+   
+   tag:2 -> sortfile:c;
+
+   audiotags:3 -> audiofile:f;
+   audiotags:4 -> tag:a;
+
+   thumbnails:b -> PNGs;
+   thumbnails:c -> PNGs;
+}

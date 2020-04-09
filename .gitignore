@@ -1,0 +1,17 @@
+*~
+build
+dist
+
+# Resource files we won't check in
+*.dot
+*.gif
+*.png
+*.jpg
+!Resources/images/*
+
+# JUCE generated files
+Builds
+JuceLibraryCode
+
+# Build side effect products
+build.log
