@@ -80,31 +80,41 @@ d. Paste this text into an email and send it to: scott.hawley@belmont.edu
 ## FAQ
 
 **Q: Which audio file formats are supported?**
- A: In theory, wav, aif, caf, aiff, mp3, ogg, and flac -- but only wav has been tested. Not supported (yet) are multi-sample container formats such as Kontakt’s .nkm -- that would be a “Version 2” feature.
+
+A: In theory, wav, aif, caf, aiff, mp3, ogg, and flac -- but only wav has been tested. Not supported (yet) are multi-sample container formats such as Kontakt’s .nkm -- that would be a “Version 2” feature.
 
 **Q: Which sample rates are supported?**
- A: Right now, it only looks at raw time-domain samples, and no resampling is performed to convert sample rates. Ideally all audio will get resampled to the same rate, e.g., 44.1 kHz, but this isn’t implemented yet. We may add an option to the Settings panel for which sample rate to use.
+
+A: Right now, it only looks at raw time-domain samples, and no resampling is performed to convert sample rates. Ideally all audio will get resampled to the same rate, e.g., 44.1 kHz, but this isn’t implemented yet. We may add an option to the Settings panel for which sample rate to use.
 
 **Q: Can I use stereo samples or only mono?**
- A: Both. We convert everything to mono by averaging across all channels.
+
+A: Both. We convert everything to mono by averaging across all channels.
 
 **Q: How much of the audio is used -- i.e., what is the duration used for the spectrograms?**
- A: By default, the first 3 seconds of each audio file. We may add Settings options to vary this later.
+
+A: By default, the first 3 seconds of each audio file. We may add Settings options to vary this later.
 
 **Q: Can I assign the same audio file to different tags within the same Sort File?**
- A: No. Technically you *can*, but you *shouldn’t*, as it would ‘frustrate’ the model. In order to associate different tags with the same audio file, we allow you to create multiple Sort Files; e.g., one Sort File for sorting on “Instrument,” another Sort File for “Mood,” etc.
 
-**Q: Is this *all there is?**
+A: No. Technically you *can*, but you *shouldn’t*, as it would ‘frustrate’ the model. In order to associate different tags with the same audio file, we allow you to create multiple Sort Files; e.g., one Sort File for sorting on “Instrument,” another Sort File for “Mood,” etc.
+
+**Q: Is this all there is?**
+
 A: It’s a work in progress. We plan to add more options, more UX goodies, etc., but this is where it’s at right now.
 
-**Q: When will Vibrary be officially released? **
+**Q: When will Vibrary be officially released?**
+
 A: No date yet.
 
 **Q: Where are the spectrograms stored on my Mac?**
- A: In the archive file ~/Library/Caches/Vibrary/Preproc.tar.gz Individual spectrograms within this archive are (by default) NumPy .npz files.
+
+A: In the archive file ~/Library/Caches/Vibrary/Preproc.tar.gz Individual spectrograms within this archive are (by default) NumPy .npz files.
 
 **Q: Where are the Sort Files stored on my Mac?**
- A: In ~/Documents/Vibrary, but do not manually alter anything in this directory.
+
+A: In ~/Documents/Vibrary, but do not manually alter anything in this directory.
 
 **Q: How do I uninstall Vibrary?**
- A: Delete the app, then delete the directories ~/Library/Caches/Vibrary and ~/Documents/Vibrary.
+
+A: Delete the app, then delete the directories ~/Library/Caches/Vibrary and ~/Documents/Vibrary.
