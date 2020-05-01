@@ -7,7 +7,7 @@ TODO: Expand startup for other platforms beyond MacOS
 Clone the project and initialize the submodules in 3rdParty.
 
     $ git clone --recurse-submodules https://github.com/artandlogic/vibrary.git
-        
+
 Or if you already have cloned the project
         
     $ git submodule update --init
@@ -39,15 +39,14 @@ Instructions [here](./README-Server.md)
     
         $ curl -L -O https://github.com/bazelbuild/bazel/releases/download/0.24.1/bazel-0.24.1-installer-darwin-x86_64.sh
         $ . bazel-0.24.1-installer-darwin-x86_64.sh
-       
-
+    
 1. Install Java 8
 
         $ brew tap caskroom versions
         $ brew cask install homebrew/cask-versions/java8
-       
-1. Necessary Python support for Bazel builds
     
+1. Necessary Python support for Bazel builds
+   
         $ pip install future
     
 ### Install other dependencies
@@ -57,7 +56,7 @@ Note that libarchive will not be linked by homebrew because macOS includes its o
 *WARNING*: The PostBuild script(s) in the Tools directory and `Vibrary.jucer` file have references to specific versions of these libraries and may need to be udpated after the install or `brew update`.
 
     $ brew install libssh libarchive
-    
+
 ### (Optional) Build Tensorflow
 
 The PreBuild scripts will check if TensorFlow needs to be built, but to manually build it yourself:
@@ -84,3 +83,72 @@ Currently there is only an Xcode exporter configured.
 Or to build and create an archive of the app, giving it a specific version
 
  `$ Tools/BuildMac.sh <version>` replacing version with the version number of the release. If no version is given the current version is bumped up one.
+
+
+
+## Linux (still under construction)
+
+### Create a virtual environment
+
+These instructions assume a Python environment based on [pip & virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) on an Ubuntu Linux distribution.   Start a new environment via
+
+```bash
+$ cd vibrary
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip install --upgrade pip
+```
+
+### Install Tensorflow
+
+You can either [install a binary via `pip`](https://www.tensorflow.org/install/pip), such as the GPU-enabled version
+
+```
+$ pip install tensorflow-gpu==1.15
+```
+
+or you can perform the following steps to build from source:
+
+1. Install Bazel for TensorFlow build
+
+   Binary builds are available [here](https://github.com/bazelbuild/bazel/releases/tag/0.24.1).  A basic Linux download & build can proceed as follows:
+
+   ```bash
+   $ curl -LO https://github.com/bazelbuild/bazel/releases/download/0.24.1/bazel-0.24.1-installer-linux-x86_64.sh
+   $ chmod u+x bazel-0.24.1-installer-linux-x86_64.sh
+   ```
+
+   Then install either system-wide via 
+
+   ```$ sudo ./bazel-0.24.1-installer-linux-x86_64.sh```
+
+   or as a user-specific installation via 
+
+   ```$ ./bazel-0.24.1-installer-linux-x86_64.sh --user```
+
+1. Install Java 8. 
+
+   ```bash
+   $ sudo apt update
+   $ sudo apt install openjdk-8-jre-headless
+   ```
+
+1. Necessary Python support for Bazel builds
+
+   `$ pip install future`
+
+...**TODO:** add more for TF build from source.  For now, continuing based on pip binary install.
+
+### Install other dependencies
+
+```bash
+$ sudo apt install libssh-4 libarchive-tools
+```
+
+### Build Vibrary
+
+Run the `Projucer` JUCE app, and then choose "Open Existing Application" and select the `Vibrary.jucer` file in the `vibrary` directory, and then....
+
+**TODO:**... Seems the options to export are greyed-out.  Can't export.
+
+![JUCE_screenshot](/home/shawley/Downloads/JUCE_screenshot.png)
