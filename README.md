@@ -42,8 +42,9 @@ Instructions [here](./README-Server.md)
     
 1. Install Java 8
 
-        $ brew tap caskroom versions
-        $ brew cask install homebrew/cask-versions/java8
+        $ brew tap homebrew/cask
+        $ brew tap AdoptOpenJDK/openjdk
+        $ brew cask install adoptopenjdk/openjdk/adoptopenjdk8
     
 1. Necessary Python support for Bazel builds
    
