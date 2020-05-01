@@ -1,6 +1,6 @@
 #! /bin/bash
 
-projectName=Incubator1
+projectName=Vibrary
 juceProject=$projectName.jucer
 
 echo juce project $juceProject
