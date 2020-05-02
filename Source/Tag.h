@@ -22,7 +22,7 @@
 #pragma once
 
 #include <string>
-
+#include <vector>
 
 /**
  * The tag describes the category the net assigned to a file.
@@ -31,10 +31,10 @@ class ATag
 {
 public:
    constexpr static int kNoId = -1;
-   
+
    ATag();
    ATag(const std::string& name, int classId = -1, int64_t key = -1L);
-   
+
    constexpr const std::string& Name() const noexcept
    {
       return fName;
@@ -45,13 +45,13 @@ public:
    {
       return fClassId;
    }
- 
+
    /** The primary key for the tag in the database, unique among all tags. */
    constexpr int64_t Key() const noexcept
    {
       return fKey;
    };
-   
+
 private:
    std::string fName;
    int fClassId;

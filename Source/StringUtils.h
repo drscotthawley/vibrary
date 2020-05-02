@@ -25,9 +25,10 @@
 #include <numeric>
 #include <string>
 #include <string_view>
+#include <cstring>
 #include <type_traits>
 #include <vector>
-
+#include <cassert>
 
 namespace StringUtils
 {
@@ -66,16 +67,16 @@ namespace StringUtils
 
 
    // MARK: - String Builder and support classes
-   
+
    struct AStrReserver final
    {
-      static constexpr
+      static //constexpr
       void Reserve(std::string& str, size_t amt)
       {
          str.reserve(amt);
       }
    };
-   
+
    /** Do nothing when asked to Reserve. */
    template<class T>
    struct ANullReserver final
@@ -84,7 +85,7 @@ namespace StringUtils
       void Reserve(T&, size_t) noexcept
       {}
    };
-   
+
    /**
     * Accumulate a variable list of values recursively through the += operator
     * on the accumulator. This happens to be the most efficient operator to build
@@ -115,7 +116,7 @@ namespace StringUtils
          }
          BuildAux(accum, rest...);
       }
-      
+
    private:
 
       // Recursive case
@@ -126,12 +127,12 @@ namespace StringUtils
          accum += first;
          BuildAux(accum, rest...);
       }
-      
+
       // Base case
       static constexpr
       void BuildAux(const Accum&) noexcept
       {}
-      
+
       // MARK: Specializations
 
       /** Add the length of the next string to the total string length. */
@@ -151,9 +152,9 @@ namespace StringUtils
          accum += strlen(str);
          BuildAux(accum, rest...);
       }
-      
+
       // MARK: Memory handling
-      
+
       template<class ... Args>
       static constexpr
       void Reserve(Accum& accum, Args... rest)
@@ -165,5 +166,3 @@ namespace StringUtils
       }
    };
 };
-
-

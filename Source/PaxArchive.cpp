@@ -32,7 +32,7 @@
 
 namespace
 {
-   constexpr time_t ToTime_t(const Time& time)
+   time_t ToTime_t(const Time& time)
    {
       return time.toMilliseconds() / 1000L;
    }
@@ -218,7 +218,7 @@ APaxMaker::~APaxMaker()
    {
       // eat it
    }
-   
+
    if (nullptr != fEntry)
    {
       archive_entry_free(fEntry);
@@ -237,7 +237,7 @@ void APaxMaker::AddDirectoryRecursively(const File& rootDir)
 {
    DirectoryIterator dirIter(rootDir, false, "*", File::findFilesAndDirectories);
    AStat stat;
-   
+
    // Depth first walk of the directory tree.
    while (dirIter.next(&stat.isDirectory, &stat.isHidden, &stat.fileSize,
                        &stat.modTime, &stat.creationTime, &stat.isReadOnly))
@@ -271,7 +271,7 @@ void APaxMaker::AddFile(const File& file, const AStat& stat)
    {
       throw std::runtime_error("Cannot add a file to an archive that is not open.");
    }
-   
+
    this->WriteEntry(file, stat);
    if (!stat.isDirectory)
    {
@@ -327,18 +327,18 @@ void APaxMaker::WriteEntry(const File& file, const AStat& stat)
    {
       return;
    }
-   
+
    archive_entry_clear(fEntry);
-   
+
    std::string filename = this->TrimRelativePath(file);
-   
+
    archive_entry_set_pathname(fEntry, filename.c_str());
    archive_entry_set_filetype(fEntry, AE_IFREG);
    archive_entry_set_perm(fEntry, stat.isReadOnly ? 0444 : 0644);
    archive_entry_set_ctime(fEntry, ToTime_t(stat.creationTime), 0); // not sure what the 0 is
    archive_entry_set_mtime(fEntry, ToTime_t(stat.modTime),      0);
    archive_entry_set_size(fEntry, stat.fileSize); // Note 3
-   
+
    int result = archive_write_header(fPax, fEntry);
    this->HandleErrors(result, "Failed to write entry header");
 }

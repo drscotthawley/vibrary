@@ -84,7 +84,8 @@ public:
    void AddTag(const ATag& tag);
    void SetTags(const Tags& tags);
    void SetTagsFrom(const ASortFile& sortFile);
-   constexpr size_t TagsSize() const noexcept { return fTags.size(); }
+   //constexpr size_t TagsSize() const noexcept { return fTags.size(); }
+   size_t TagsSize() const noexcept { return fTags.size(); }
 
    /** The function to invoke when a tag button is clicked. */
    void SetTagFunction(TagFunction function);
@@ -126,4 +127,3 @@ private:
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
-

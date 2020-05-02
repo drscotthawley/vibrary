@@ -25,6 +25,7 @@
 #include <functional>
 #include <iterator>
 #include <numeric>
+#include <cassert>
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
@@ -35,7 +36,7 @@ namespace
 {
    /** \return  out[n] = data[n + 1] - data[n] for n in 1 to data.size(). */
    std::vector<float> Diff(std::vector<float>& data);
-   
+
    /**
     * \param a The left hand operand, it can be a 1xN vector or MxN where N is equal
     *          to the length of v.
@@ -46,23 +47,23 @@ namespace
    template<class Iter, class Iter2, class OutputIt>
    void MatrixMultiply(Iter a, Iter aEnd, size_t numCols, const Iter2 b, size_t numBCols,
                    OutputIt outIt);
-   
+
    /**
     * Perform op on each pair of values in left,right.
     */
    template <class T, class BinaryOp>
    std::vector<T> Outer(const std::vector<T>& left, const std::vector<T>& right, BinaryOp op);
-   
+
    /** \param out On exit contains a sequence from min to max of evenly spaced values */
    void Linspace(std::vector<float>& out, float min, float max);
-   
+
    /**
     * "Slaney" formula to convert hertz to mels
     * From https://github.com/librosa/librosa/blob/master/librosa/core/time_frequency.py
     */
    float HzToMel(float hz);
    float MelToHz(float mels);
-   
+
    /**
     * \param minFreq minimum Hz of the sequence
     * \param maxFreq maximum Hz of the sequence
@@ -70,7 +71,7 @@ namespace
     *          the mel frequency space, but reutrned as Hz.
     */
    std::vector<float> MelFrequencies(size_t numBins, float minFreq, float maxFreq);
-   
+
    /** \returns 1 + numBins / 2 values from 0 to sampleRate / 2 */
    std::vector<float> FftFrequencies(float sampleRate, size_t numBins);
 }
@@ -94,12 +95,12 @@ void AMelFilter::HzToMels(const float* spectrum, size_t rowStride, float* out) c
 void AMelFilter::InitWeights(float sampleRate, bool norm/*=true*/)
 {
    using Bins = std::vector<float>;
-   
+
    constexpr float minFreq = 0.0f;
    float maxFreq = sampleRate / 2.0f;
-   
+
    constexpr size_t kMelsPad = 2UL;
-   
+
    Bins fftFreqs(FftFrequencies(sampleRate, fNumFftBins));
    Bins melFreqs(MelFrequencies(fNumMels + kMelsPad, minFreq, maxFreq));
    Bins fdiff(Diff(melFreqs)); // returns melFreqs.size() - 1 elements == kNumMelBins + 1
@@ -129,7 +130,7 @@ void AMelFilter::InitWeights(float sampleRate, bool norm/*=true*/)
       std::transform(enorm.begin(), enorm.end(), enorm.begin(),
                      std::bind(std::divides<Bins::value_type>(),
                                2.0, std::placeholders::_1));
-      
+
       // weights *= enorm[:, np.newaxis]
       auto weightIt = fWeights.begin();
       auto weightEnd = fWeights.end();
@@ -165,7 +166,7 @@ namespace
       adjDiff.erase(adjDiff.begin());
       return adjDiff;
    }
-   
+
 
    /** Copy a column of a matrix */
    template<class Iter, class OutIter>
@@ -190,7 +191,7 @@ namespace
          Column(b + i, numBCols, bColumn.begin(), bColumn.size());
          auto outColIt = outIt;
          auto aRowIt = a;
-         
+
          for (int j = 0; j < numARows; ++j, outColIt += numBCols, aRowIt += numACols)
          {
             *outColIt = std::inner_product(aRowIt, aRowIt + numACols, bColumn.begin(), 0.0f);
@@ -224,38 +225,38 @@ namespace
       std::generate(out.begin(), out.end() - 1, EvenlySpaced(min, max, out.size()));
       out.back() = max;
    }
-   
-   
+
+
    float HzToMel(float hz)
    {
       constexpr float f_min = 0.0f;
       constexpr float f_sp = 200.0f / 3.0f;
       constexpr float min_log_hz = 1000.0f;
-      
+
       float mel = (hz - f_min) / f_sp; // lineear
       if (hz >= min_log_hz)
       {
          constexpr float min_log_mel = (min_log_hz - f_min) / f_sp;
          constexpr float logstep = 0.06875177742094912f; // == ::logf(6.4f) / 27.0f;
-         
+
          mel = min_log_mel + ::logf(hz / min_log_hz) / logstep;
       }
       return mel;
    }
-   
-   
+
+
    float MelToHz(float mels)
    {
       constexpr float f_min = 0.0f;
       constexpr float f_sp = 200.0f / 3.0f;
       constexpr float min_log_hz = 1000.0;
       constexpr float min_log_mel = (min_log_hz - f_min) / f_sp;
-      
+
       float hz = f_min + f_sp * mels;
       if (mels >= min_log_mel)
       {
          constexpr float logstep = 0.06875177742094912f; // = np.log(6.4) / 27.0
-         
+
          hz = min_log_hz * ::expf(logstep * (mels - min_log_mel));
       }
       return hz;
@@ -289,12 +290,12 @@ namespace
       }
       return result;
    }
-   
+
 
 #if UNIT_TESTS
-   
+
 // MARK: - Unit Tests
-   
+
    class AMatrixMultiplyTest : public juce::UnitTest
    {
    public:
@@ -307,14 +308,14 @@ namespace
          std::vector<int> intResult(1UL);
          MatrixMultiply(a.begin(), a.end(), 1UL, b.begin(), 1UL, intResult.begin());
          this->expectEquals(intResult[0], 12);
-      
+
          this->beginTest("test two vectors");
          std::vector<float> v = { 2.0f, 3.0f };
          std::vector<float> floatResult(1);
          // 1x2 . 2.1 = 1x1
          MatrixMultiply(v.begin(), v.end(), 2UL, v.begin(), 1UL, floatResult.begin());
          this->expectEquals(floatResult[0], 2.0f * 2.0f + 3.0f * 3.0f);
-         
+
          this->beginTest("test matrix dot vector");
          std::vector<double> m = { 1.0, 2.0, 3.0, 4.0 };
          floatResult.resize(2, 0.0f);
@@ -322,7 +323,7 @@ namespace
          MatrixMultiply(m.begin(), m.end(), 2UL, v.begin(), 1UL, floatResult.begin());
          this->expectEquals(floatResult[0], (float)(1.0 * 2.0 + 2.0 * 3.0));
          this->expectEquals(floatResult[1], (float)(3.0 * 2.0 + 4.0 * 3.0));
-         
+
          this->beginTest("test matrix result");
          floatResult.resize(4, 0.0f);
          // 2x1 . 1x2 = 2x2
@@ -333,8 +334,8 @@ namespace
          this->expectEquals(floatResult[3], 3.0f * 3.0f);
       }
    };
-   
-   
+
+
    class AHzConvertTest : public juce::UnitTest
    {
    public:
@@ -347,14 +348,14 @@ namespace
          const std::array<float, 6> mels = {
           0.899999976f, 1.5f, 15.0f, 51.5530777f, 70.0446396f, 81.3888016f
          };
-         
+
          this->beginTest("to mels tests");
          auto expectedIt = mels.begin();
          std::for_each(hzs.begin(), hzs.end(), [&expectedIt, this](float hz)
           {
              this->expectWithinAbsoluteError(HzToMel(hz), *expectedIt++, 1e-5f);
           });
-         
+
          this->beginTest("to Hz tests");
          expectedIt = hzs.begin();
          std::for_each(mels.begin(), mels.end(), [&expectedIt, this](float mels)
@@ -363,8 +364,8 @@ namespace
           });
       }
    };
-   
-   
+
+
    class ALinspaceTest : public juce::UnitTest
    {
    public:
@@ -372,7 +373,7 @@ namespace
       void runTest() override
       {
          this->beginTest("basic test");
-         
+
          std::vector<float> out(10, 0.0f);
          Linspace(out, 0.0f, 100.0f);
          const std::array<float, 10> expected =
@@ -384,9 +385,9 @@ namespace
          std::transform(out.begin(), out.end(), expected.begin(), out.begin(),
                         std::minus<float>());
          float totalErr = std::accumulate(out.begin(), out.end(), 0.0f);
-         
+
          this->expectLessOrEqual(totalErr, 1e-4f * out.size());
-         
+
          this->beginTest("mel frequency example test"); // $$$ not committed to this one
          out = MelFrequencies(40, 0.0f, 11025.0f);
          const std::array<float, 40> melExpected =
@@ -402,9 +403,9 @@ namespace
             5955.205f,   6502.92f ,  7101.009f,  7754.107f,
             8467.272f,   9246.028f,  10096.408f, 11025.0f
          };
-         
+
          this->expectEquals(out.size(), melExpected.size());
-         
+
          std::transform(out.begin(), out.end(), melExpected.begin(), out.begin(),
                         std::minus<float>());
          totalErr = std::accumulate(out.begin(), out.end(), 0.0f);
@@ -412,7 +413,7 @@ namespace
       }
    };
 
-   
+
    class AMelFilterTest : public juce::UnitTest
    {
    public:
@@ -426,7 +427,7 @@ namespace
          this->beginTest("shape test");
          const size_t numColumns = (1UL + numFFTBins / 2UL);
          this->expectEquals(filter.Weights().size(), numMelBins * numColumns);
-         
+
          // Expected values were taken from a Python session calling the librosa
          // equivalent to this class.
          const auto& weights = filter.Weights();
@@ -448,7 +449,7 @@ namespace
                weightIt += numColumns;
             }
          }
-         
+
          this->beginTest("test sampling of end weights");
          {
             expectedRows = {{
@@ -470,7 +471,7 @@ namespace
                rweightIt += numColumns;
             }
          }
-         
+
          auto maxIt = std::max_element(weights.begin(), weights.end());
          auto maxVal = *maxIt;
          auto maxIdx = maxIt - weights.begin();
@@ -478,14 +479,13 @@ namespace
          this->expectEquals(maxIdx, 4112L);
       }
    };
-   
-   
+
+
    // Register tests by declaring them.
    static AMatrixMultiplyTest sMatrixMultiplyTest;
    static AHzConvertTest sHzConvertTest;
    static ALinspaceTest sLinspaceTest;
    static AMelFilterTest sMelFilterTest;
-   
+
 #endif
 }
-

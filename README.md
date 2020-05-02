@@ -38,13 +38,12 @@ Instructions [here](./README-Server.md)
     macOS 10.15 will prevent `bazel-real` from opening because it isn't signed. You can work around this by downloading with `curl` instead of the browser. The following downloads the installer version. 
     
         $ curl -L -O https://github.com/bazelbuild/bazel/releases/download/0.24.1/bazel-0.24.1-installer-darwin-x86_64.sh
-        $ . bazel-0.24.1-installer-darwin-x86_64.sh
+        $ source bazel-0.24.1-installer-darwin-x86_64.sh
     
 1. Install Java 8
 
-        $ brew tap homebrew/cask
-        $ brew tap AdoptOpenJDK/openjdk
-        $ brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+        $ brew tap caskroom versions
+        $ brew cask install homebrew/cask-versions/java8
     
 1. Necessary Python support for Bazel builds
    
@@ -73,14 +72,10 @@ The PreBuild scripts will check if Cnpy needs to be build, but to manually build
 
 ### Build Vibrary
 
-Run `Tools/BuildMac.sh`, which will perform multiple steps.  Manual steps are outlined below.
-By default the `BuildMac.sh` script shows little output.  To see the progress of the `BuildMac.sh` script, run (in another terminal window)
-
-    $ tail -f build.log
+The `Tools/BuildMac.sh` takes care of this, but manual steps are outlined here.
 
 Currently there is only an Xcode exporter configured.
 
-Manual build steps:
 1. Open Incubator1.jucer with Projucer
 1. Export the project files from Projucer (`command-shift-L`)
 1. Build with Xcode.
@@ -106,13 +101,7 @@ $ pip install --upgrade pip
 
 ### Install Tensorflow
 
-You can either [install a binary via `pip`](https://www.tensorflow.org/install/pip), such as the GPU-enabled version
-
-```
-$ pip install tensorflow-gpu==1.15
-```
-
-or you can perform the following steps to build from source:
+We need the C++ bindings for tensorflow, which can only be obtained via building from source.
 
 1. Install Bazel for TensorFlow build
 
@@ -138,22 +127,36 @@ or you can perform the following steps to build from source:
    $ sudo apt install openjdk-8-jre-headless
    ```
 
-1. Necessary Python support for Bazel builds
+1. Run the helper script
 
-   `$ pip install future`
-
-...**TODO:** add more for TF build from source.  For now, continuing based on pip binary install.
+   ```bash
+   $ Tools/Helpers/BuildTensorFlowLinux.sh`
+   ```
 
 ### Install other dependencies
 
 ```bash
-$ sudo apt install libssh-4 libarchive-tools
+$ sudo apt install libssh-4 libarchive-dev jackd2 libjack-jackd2-dev
 ```
+
+**Build Cnpy** for reading numpy files:
+
+```bash
+$ Tools/Helpers/BuildCnpy.sh
+```
+
+
 
 ### Build Vibrary
 
-Run the `Projucer` JUCE app, and then choose "Open Existing Application" and select the `Vibrary.jucer` file in the `vibrary` directory, and then....
+Run the `Projucer` JUCE app, and then choose "Open Existing Application" and select the `Vibrary.jucer` file in the `vibrary` directory.  
 
-**TODO:**... Seems the options to export are greyed-out.  Can't export.
+Then choose `File -> Save Project`.  Then you can make the Makefile:
 
-![JUCE_screenshot](/home/shawley/Downloads/JUCE_screenshot.png)
+```bash
+$ cd Builds/LinuxMakefile
+$ export CPPFLAGS="-I../../3rdParty/cnpy $CPPFLAGS"
+$ make --trace -j 8 
+```
+
+**Problem:** the Makefile currently needs `-I../../3rdParty/cnpy/` added to it manually. 

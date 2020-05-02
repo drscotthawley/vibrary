@@ -20,6 +20,7 @@
 */
 
 #include "Colorizers.h"
+#include <cassert>
 
 juce::Image Colorizer::ColorizeSpectra() const
 {
