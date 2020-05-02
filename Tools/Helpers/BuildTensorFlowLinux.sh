@@ -12,10 +12,20 @@ pip install pip six numpy wheel setuptools mock 'future>=0.17.1'
 pip install keras_applications --no-deps
 pip install keras_preprocessing --no-deps
 
-# patch grpc to avoid errors with gettid
-(cd third_party; curl -O https://gist.githubusercontent.com/drscotthawley/8eb51af1b4c92c4f18432cb045698af7/raw/a4aaa020f0434c58b08e453e6d501553ceafbc81/grpc.patch; mv grpc.patch grpc_gettid_fix.patch)
+# Run bazel build the first time
+BUILD_CMD="bazel build --jobs=$(nproc) --verbose_failures --cxxopt='-std=c++11' -c opt //tensorflow:libtensorflow_cc.so"
+echo $BUILD_CMD
+$BUILD_CMD
 
-bazel build --jobs=$(nproc) --verbose_failures --cxxopt='-std=c++11' -c opt //tensorflow:libtensorflow_cc.so
+# That's going to fail. Then fix the bazel-installed GRPC and try again
+GRPC_DIR="$(ls -d ~/.cache/bazel/_bazel_${USER}/a*/external/grpc)"
+echo $GRPC_DIR
+(cd $GRPC_DIR; for f in src/core/lib/gpr/log_linux.cc src/core/lib/gpr/log_posix.cc src/core/lib/iomgr/ev_epollex_linux.cc; do sed -i 's/gettid/sys_gettid/g' "${f}"; done)
+
+# Then run the build command a second time
+echo $BUILD_CMD
+$BUILD_CMD
+
 
 if [ $? -ne 0 ]
 then
