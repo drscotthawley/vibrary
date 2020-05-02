@@ -105,7 +105,7 @@ We need the C++ bindings for tensorflow, which can only be obtained via building
 
 1. Install Bazel for TensorFlow build
 
-   Binary builds are available [here](https://github.com/bazelbuild/bazel/releases/tag/0.24.1).  A basic Linux download & build can proceed as follows:
+   Binary builds of Bazel are available [here](https://github.com/bazelbuild/bazel/releases/tag/0.24.1).  A basic Linux download & build can proceed as follows:
 
    ```bash
    $ curl -LO https://github.com/bazelbuild/bazel/releases/download/0.24.1/bazel-0.24.1-installer-linux-x86_64.sh
@@ -130,8 +130,10 @@ We need the C++ bindings for tensorflow, which can only be obtained via building
 1. Run the helper script
 
    ```bash
-   $ Tools/Helpers/BuildTensorFlowLinux.sh`
+   $ Tools/Helpers/BuildTensorFlowLinux.sh
    ```
+
+   **TODO:** Still fails with error about grpc. See https://github.com/tensorflow/tensorflow/issues/34291
 
 ### Install other dependencies
 
@@ -144,8 +146,6 @@ $ sudo apt install libssh-4 libarchive-dev jackd2 libjack-jackd2-dev
 ```bash
 $ Tools/Helpers/BuildCnpy.sh
 ```
-
-
 
 ### Build Vibrary
 

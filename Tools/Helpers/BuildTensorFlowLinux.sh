@@ -7,10 +7,15 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo $SCRIPT_DIR
 pushd ${SCRIPT_DIR}/../../3rdParty/tensorflow
 pwd
-pip install -U --user pip six numpy wheel setuptools mock 'future>=0.17.1'
-pip install -U --user keras_applications --no-deps
-pip install -U --user keras_preprocessing --no-deps
-bazel build --jobs=$(nproc) --verbose_failures --cxxopt='-std=c++14' -c opt //tensorflow:libtensorflow_cc.so
+# dependencies
+pip install pip six numpy wheel setuptools mock 'future>=0.17.1'
+pip install keras_applications --no-deps
+pip install keras_preprocessing --no-deps
+
+# patch grpc to avoid errors with gettid
+(cd third_party; curl -O https://gist.githubusercontent.com/drscotthawley/8eb51af1b4c92c4f18432cb045698af7/raw/a4aaa020f0434c58b08e453e6d501553ceafbc81/grpc.patch; mv grpc.patch grpc_gettid_fix.patch)
+
+bazel build --jobs=$(nproc) --verbose_failures --cxxopt='-std=c++11' -c opt //tensorflow:libtensorflow_cc.so
 
 if [ $? -ne 0 ]
 then
