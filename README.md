@@ -156,7 +156,6 @@ Then choose `File -> Save Project`.  Then you can make the Makefile:
 ```bash
 $ cd Builds/LinuxMakefile
 $ export CPPFLAGS="-I../../3rdParty/cnpy $CPPFLAGS"
-$ make --trace -j 8 
+$ make --trace -j `nproc` 
 ```
 
-**Problem:** the Makefile currently needs `-I../../3rdParty/cnpy/` added to it manually. 
