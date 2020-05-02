@@ -73,10 +73,14 @@ The PreBuild scripts will check if Cnpy needs to be build, but to manually build
 
 ### Build Vibrary
 
-The `Tools/BuildMac.sh` takes care of this, but manual steps are outlined here.
+Run `Tools/BuildMac.sh`, which will perform multiple steps.  Manual steps are outlined below.
+By default the `BuildMac.sh` script shows little output.  To see the progress of the `BuildMac.sh` script, run (in another terminal window)
+
+    $ tail -f build.log
 
 Currently there is only an Xcode exporter configured.
 
+Manual build steps:
 1. Open Incubator1.jucer with Projucer
 1. Export the project files from Projucer (`command-shift-L`)
 1. Build with Xcode.
