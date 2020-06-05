@@ -3,7 +3,7 @@
 <JUCERPROJECT id="uiEZ1i" name="Vibrary" projectType="guiapp" jucerVersion="5.4.7"
               companyName="Art+Logic, Inc." companyCopyright="&#169; Art+Logic, Inc. 2018-2020"
               companyWebsite="https://www.artandlogic.com/" bundleIdentifier="com.artandlogic.vibrary"
-              maxBinaryFileSize="10485760" cppLanguageStandard="17" version="autolist1213121412131215-690558576-690558575-690558574-690558573-690558572-690558571-690558570"
+              maxBinaryFileSize="10485760" cppLanguageStandard="17" version="0.2.3"
               projectLineFeed="&#10;">
   <MAINGROUP id="aknjgw" name="Vibrary">
     <GROUP id="{38BB0C96-FA79-5495-9251-4C0AEAB83BF9}" name="Source">
