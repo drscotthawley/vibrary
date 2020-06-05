@@ -134,8 +134,8 @@
       <FILE id="IUJqeD" name="MelFilter.cpp" compile="1" resource="0" file="Source/MelFilter.cpp"/>
       <FILE id="YzJnXk" name="MelFilter.h" compile="0" resource="0" file="Source/MelFilter.h"/>
       <GROUP id="{A6310410-E140-91C9-001E-5CE8F9F54FAA}" name="Model">
-        <FILE id="Tn26Qa" name="SortFile.cpp" compile="1" resource="0" file="/Users/shawley/github/vibrary/Source/SortFile.cpp"/>
-        <FILE id="GVXsEQ" name="SortFile.h" compile="0" resource="0" file="/Users/shawley/github/vibrary/Source/SortFile.h"/>
+        <FILE id="Tn26Qa" name="SortFile.cpp" compile="1" resource="0" file="Source/SortFile.cpp"/>
+        <FILE id="GVXsEQ" name="SortFile.h" compile="0" resource="0" file="Source/SortFile.h"/>
         <FILE id="L80SR0" name="Spectrogram.cpp" compile="1" resource="0" file="Source/Spectrogram.cpp"/>
         <FILE id="hAktFn" name="Spectrogram.h" compile="0" resource="0" file="Source/Spectrogram.h"/>
         <FILE id="I1A2M0" name="Tag.cpp" compile="1" resource="0" file="Source/Tag.cpp"/>
@@ -161,15 +161,15 @@
         <FILE id="prxoGb" name="Persistence.cpp" compile="1" resource="0" file="Source/Persistence.cpp"/>
         <FILE id="E6U4du" name="Persistence.h" compile="0" resource="0" file="Source/Persistence.h"/>
         <FILE id="X5McxC" name="SortFilesSource.cpp" compile="1" resource="0"
-              file="/Users/shawley/github/vibrary/Source/SortFilesSource.cpp"/>
+              file="Source/SortFilesSource.cpp"/>
         <FILE id="zTtXbq" name="SortFilesSource.h" compile="0" resource="0"
-              file="/Users/shawley/github/vibrary/Source/SortFilesSource.h"/>
+              file="Source/SortFilesSource.h"/>
         <FILE id="GDHrx6" name="SpectrogramWriter.cpp" compile="1" resource="0"
               file="Source/SpectrogramWriter.cpp"/>
         <FILE id="ieEEYT" name="SpectrogramWriter.h" compile="0" resource="0"
               file="Source/SpectrogramWriter.h"/>
-        <FILE id="s3q95h" name="TagsSource.cpp" compile="1" resource="0" file="/Users/shawley/github/vibrary/Source/TagsSource.cpp"/>
-        <FILE id="RWSeOv" name="TagsSource.h" compile="0" resource="0" file="/Users/shawley/github/vibrary/Source/TagsSource.h"/>
+        <FILE id="s3q95h" name="TagsSource.cpp" compile="1" resource="0" file="Source/TagsSource.cpp"/>
+        <FILE id="RWSeOv" name="TagsSource.h" compile="0" resource="0" file="Source/TagsSource.h"/>
       </GROUP>
       <FILE id="wTAxkQ" name="Player.cpp" compile="1" resource="0" file="Source/Player.cpp"/>
       <FILE id="HPZwHd" name="Player.h" compile="0" resource="0" file="Source/Player.h"/>
